@@ -1,22 +1,35 @@
 import React from 'react';
+import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+          <div className="row">
+              <div className="col align-self-start">
+                  One of three columns
+              </div>
+              <div className="col align-self-center">
+                  One of three columns
+              </div>
+              <div className="col align-self-end">
+                  One of three columns
+              </div>
+          </div>
+          <div className="container main-box">
+              <div className="row">
+                  <div className="col align-self-center">
+                      One of three columns
+                  </div>
+                  <div className="col align-self-center">
+                      One of three columns
+                  </div>
+                  <div className="col align-self-center">
+                      One of three columns
+                  </div>
+              </div>
+          </div>
+      </>
   );
 }
 
