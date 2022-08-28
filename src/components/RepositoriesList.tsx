@@ -1,13 +1,20 @@
 import {useState} from "react";
 import React from "react";
+import {useTypedSelector} from "../hooks/useTypedSelector";
+import useActions from "../hooks/useActions";
 
 
 const RepositoriesList: React.FC = () => {
     const [term, setTerm] = useState('');
+    const {searchRepositories} = useActions();
+    const {data, loading, error}= useTypedSelector((state) => {
+        return state.repositories;
+    })
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-    }
+        searchRepositories(term);
+    };
 
     return (
         <div>
@@ -15,6 +22,15 @@ const RepositoriesList: React.FC = () => {
                 <input value={term} onChange={(event => setTerm(event.target.value))}/>
                 <button> Search </button>
             </form>
+            {error && <h3>{error}</h3>}
+            {loading && <h3>Loading ...</h3>}
+            {!error && !loading && data.map((name) => {
+                return (
+                    <div key={name}>
+                          <h5>{name}</h5>
+                    </div>
+                );
+            })}
         </div>
     );
 };

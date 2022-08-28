@@ -5,7 +5,7 @@ interface RepositoriesState {
     loading: boolean;
     error: string | null;
     data: string[];
-};
+}
 
 const initialState = {
     loading: false,
